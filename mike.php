@@ -27,7 +27,28 @@ if($stmt->errorCode() !== '00000'){
 //var_dump($row);
 //echo $row->nom;
 // etape final, le fetch, dans une boucle while
+?>
+<a href="nicolas.php">Ajouter</a>
+<table>
+    <tr>
+        <td>Prenom</td>
+        <td>Nom</td>
+        <td>Action</td>
+    </tr>
+<?php
 while(false !== $row = $stmt->fetch(PDO::FETCH_ASSOC)){
     // affichage du contenu de la table
-    echo $row['prenom']." ".$row['nom']." ".$row['adresse_email'].PHP_EOL;
+?>
+    <tr>
+        <td><?=$row['prenom']?></td>
+        <td><?=$row['nom']?></td>
+        <td>
+            <a href="charlotte.php?id=<?=$row['id']?>">Modifier</a>
+            <a href="michaeljackson.php?id=<?=$row['id']?>">Supprimer</a>
+        </td>
+    </tr>
+<?php
 }
+?>
+</table>
+
